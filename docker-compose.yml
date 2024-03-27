@@ -18,8 +18,8 @@ services:
     container_name: geo-distance-demo-db
     restart: always
     environment:
-      POSTGRES_DB: geo-distance-demo-db
-      POSTGRES_USER: geo-distance-demo-user
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
