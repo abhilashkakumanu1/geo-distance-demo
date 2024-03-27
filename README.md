@@ -17,6 +17,9 @@
 ### Commands
 
 ```bash
+# Create .env
+cp .env.sample .env
+
 # Start the setup (server & db)
 docker-compose up -d
 
