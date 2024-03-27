@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  server:
+    build: .
+    container_name: geo-distance-demo-server
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    volumes:
+      - .:/usr/src/app
+    command: ["yarn", "run", "dev"]
+
+  db:
+    image: postgres:16.2-alpine
+    container_name: geo-distance-demo-db
+    restart: always
+    environment:
+      POSTGRES_DB: geo-distance-demo-db
+      POSTGRES_USER: geo-distance-demo-user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - geo-distance-demo-db:/var/lib/postgresql/data
+
+volumes:
+  geo-distance-demo-db:
