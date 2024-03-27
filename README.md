@@ -5,7 +5,7 @@
     - [Prerequisites](#prerequisites)
     - [Commands](#commands)
   - [Observations](#observations)
-    - [Known Caveats](#known-caveats)
+  - [Known Caveats](#known-caveats)
 
 ## Set up
 
@@ -46,7 +46,7 @@ yarn run test
 2. Also, prisma natively doesn't support PostGIS types, sin, cos functions. We can use prisma for migration but when it comes to geo-spatial queries, prisma doesn't seem to give us any advantage over using postgres client with raw SQL queries
 3. Unit tests doesn't make sense in our case as there is no business logic involved. E2E tests makes more sense
 
-### Known Caveats
+## Known Caveats
 
 1. Postgres DB credentials are hardcoded into docker-compose file. In prod environment these have to be passed through .env file
 2. CMD in docker-compose file is setup for live-reload i.e it for dev environment. For prod environment we have create another compose file (docker-compose.prod.file) that doesn't have live reload and executes `yarn run start` command instead of `yarn run dev`
