@@ -35,6 +35,9 @@ yarn run setup:db
 # Note: First get into the container before running this command
 # Seed Data
 yarn run setup:db
+
+# E2E Tests
+yarn run test
 ```
 
 ## Observations
@@ -47,3 +50,4 @@ yarn run setup:db
 
 1. Postgres DB credentials are hardcoded into docker-compose file. In prod environment these have to be passed through .env file
 2. CMD in docker-compose file is setup for live-reload i.e it for dev environment. For prod environment we have create another compose file (docker-compose.prod.file) that doesn't have live reload and executes `yarn run start` command instead of `yarn run dev`
+3. E2E tests require server to be running to work
