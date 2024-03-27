@@ -4,6 +4,7 @@
   - [Set up](#set-up)
     - [Prerequisites](#prerequisites)
     - [Commands](#commands)
+    - [Order of steps to setup application for the first time](#order-of-steps-to-setup-application-for-the-first-time)
   - [Observations](#observations)
   - [Known Caveats](#known-caveats)
   - [Swagger Docs](#swagger-docs)
@@ -38,11 +39,18 @@ yarn run setup:db
 
 # Note: First get into the container before running this command
 # Seed Data
-yarn run setup:db
+yarn run seed
 
 # E2E Tests
 yarn run test
 ```
+
+### Order of steps to setup application for the first time
+
+1. Copy .env.sample to .env
+2. Spin up the docker-compose setup
+3. Create Tables (`setup:db` command)
+4. Seed Data (`seed` command)
 
 ## Observations
 
