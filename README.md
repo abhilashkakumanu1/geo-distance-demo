@@ -6,6 +6,7 @@
     - [Commands](#commands)
   - [Observations](#observations)
   - [Known Caveats](#known-caveats)
+  - [Swagger Docs](#swagger-docs)
 
 ## Set up
 
@@ -51,3 +52,7 @@ yarn run test
 1. Postgres DB credentials are hardcoded into docker-compose file. In prod environment these have to be passed through .env file
 2. CMD in docker-compose file is setup for live-reload i.e it for dev environment. For prod environment we have create another compose file (docker-compose.prod.file) that doesn't have live reload and executes `yarn run start` command instead of `yarn run dev`
 3. E2E tests require server to be running to work
+
+## Swagger Docs
+
+Swagger docs is running at `/api-docs` endpoint
