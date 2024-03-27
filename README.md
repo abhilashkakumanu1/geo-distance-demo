@@ -5,6 +5,7 @@
     - [Prerequisites](#prerequisites)
     - [Commands](#commands)
   - [Observations](#observations)
+    - [Known Caveats](#known-caveats)
 
 ## Set up
 
@@ -41,3 +42,8 @@ yarn run setup:db
 1. Instead of storing lat, long as decimal points in the DB, the better way is to store them as `POINT` types & use [PostGIS](http://postgis.net/workshops/postgis-intro/geography.html). It comes with built-in support for several geo-spatial queries. Haven't implemented this because of time constraints, and also that the requirements specifically asks to adhere to the given schema.
 2. Also, prisma natively doesn't support PostGIS types, sin, cos functions. We can use prisma for migration but when it comes to geo-spatial queries, prisma doesn't seem to give us any advantage over using postgres client with raw SQL queries
 3. Unit tests doesn't make sense in our case as there is no business logic involved. E2E tests makes more sense
+
+### Known Caveats
+
+1. Postgres DB credentials are hardcoded into docker-compose file. In prod environment these have to be passed through .env file
+2. CMD in docker-compose file is setup for live-reload i.e it for dev environment. For prod environment we have create another compose file (docker-compose.prod.file) that doesn't have live reload and executes `yarn run start` command instead of `yarn run dev`
